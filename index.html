@@ -38,8 +38,8 @@
         display: grid;
         place-items: center;
 
-        /* ✅ HUOM: poistetaan iso alapadding, jotta footer tulee kiinni */
-        padding: 84px var(--pad) 0px;
+        /* hiukan pienempi ylätila, ei alapaddingia */
+        padding: 70px var(--pad) 0px;
 
         overflow: hidden;
         flex: 1;
@@ -66,7 +66,7 @@
       }
 
       .top-logo img{
-        height: 92px; /* isompi */
+        height: 92px;
         width: auto;
         display: block;
         filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
@@ -84,8 +84,8 @@
         box-shadow: var(--shadow);
         padding: clamp(18px, 3vw, 34px);
 
-        /* ✅ tärkeä: ei jätetä alapäähän väliä footerille */
-        margin-bottom: 0;
+        /* ✅ NOSTA LAATIKKOA YLEMMÄS */
+        transform: translateY(-26px);
       }
 
       h1{
@@ -129,9 +129,6 @@
         border-top: 1px solid rgba(15,23,42,.12);
         color: var(--muted);
         font-size: 14px;
-
-        /* ✅ ettei jätä “extra ilmaa” alareunaan */
-        padding-bottom: 0;
       }
 
       .cols{
@@ -147,30 +144,27 @@
         text-underline-offset: 2px;
       }
 
-      /* ✅ FOOTER kiinni korttiin */
+      /* ✅ CONTACT-PALKKI KIINNI YLEMPÄÄN LAATIKKOON */
       .site-footer{
         width: min(var(--max), 100%);
         margin: 0 auto;
 
-        /* ✅ liitos korttiin: nostetaan footerin yläreuna kortin päälle */
-        margin-top: -18px;
+        /* ✅ liitos täysin kiinni (nostetaan enemmän) */
+        margin-top: -36px;
 
-        /* footer näyttää samalta kortilta (yhtenäinen laatikko) */
         background: rgba(255,255,255,.92);
         backdrop-filter: blur(8px);
         border: 1px solid rgba(255,255,255,.55);
+        border-top: 0;
 
-        /* ✅ pyöristetään vain alapää -> näyttää samalta kortilta */
+        /* vain alapää pyöristetty -> näyttää samalta kortilta */
         border-radius: 0 0 var(--card-radius) var(--card-radius);
-
-        /* ✅ varjo sama kuin kortilla (jatkuu nätisti) */
         box-shadow: var(--shadow);
 
         padding: 18px var(--pad) 22px;
         text-align: center;
-
-        /* ✅ yläreunaan ei tule viivaa */
-        border-top: 0;
+        position: relative;
+        z-index: 9;
       }
 
       .site-footer .contact-title{
@@ -196,9 +190,7 @@
       @media (max-width: 900px){
         .hero{
           min-height: auto;
-
-          /* ✅ myös mobiilissa ei alapaddingia */
-          padding: 86px var(--pad) 0px;
+          padding: 78px var(--pad) 0px;
         }
 
         .grid{ grid-template-columns: 1fr; }
@@ -207,15 +199,15 @@
         .top-logo{ top: 26px; }
         .top-logo img{ height: 78px; }
 
-        /* mobiilissa vähän pienempi liitos */
-        .site-footer{ margin-top: -14px; }
+        /* mobiilissa hieman vähemmän */
+        .card{ transform: translateY(-18px); }
+        .site-footer{ margin-top: -26px; }
       }
     </style>
   </head>
 
   <body>
     <main class="hero">
-      <!-- Logo kuvan päällä -->
       <div class="top-logo" aria-hidden="true">
         <img src="logo.png" alt="" onerror="this.style.display='none'" />
       </div>
@@ -266,7 +258,6 @@
       </section>
     </main>
 
-    <!-- ✅ footer näyttää nyt samalta kortilta ja on kiinni siihen -->
     <footer class="site-footer">
       <div class="contact" aria-label="Yhteystiedot">
         <div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
