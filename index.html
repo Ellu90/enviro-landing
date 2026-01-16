@@ -32,7 +32,10 @@
         min-height: 92vh;
         display: grid;
         place-items: center;
-        padding: 96px var(--pad) 48px;
+
+        /* ✅ lisää tilaa logolle -> ei törmää korttiin */
+        padding: 132px var(--pad) 48px;
+
         overflow: hidden;
       }
 
@@ -46,10 +49,10 @@
         transform: scale(1.02);
       }
 
-      /* LOGO */
+      /* LOGO kuvan päällä */
       .top-logo{
         position: absolute;
-        top: 34px;               /* ✅ alempana kuin ennen */
+        top: 22px;               /* ✅ hieman ylempänä */
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
@@ -57,7 +60,7 @@
       }
 
       .top-logo img{
-        height: 92px;            /* ✅ isompi */
+        height: 72px;            /* ✅ pienempi logo */
         width: auto;
         display: block;
         filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
@@ -73,7 +76,7 @@
         border: 1px solid rgba(255,255,255,.55);
         border-radius: var(--card-radius);
         box-shadow: var(--shadow);
-        overflow: hidden; /* ✅ jotta sisäiset osiot “liimautuu” nätisti */
+        overflow: hidden;
       }
 
       .card-inner{
@@ -82,14 +85,14 @@
 
       h1{
         margin: 10px 0 6px;
-        text-align: center;      /* ✅ keskelle */
+        text-align: center;
         font-size: clamp(30px, 4.2vw, 54px);
         letter-spacing: .2px;
       }
 
       .sub{
         margin: 0 0 18px;
-        text-align: center;      /* ✅ keskelle */
+        text-align: center;
         font-size: clamp(16px, 2vw, 20px);
         color: rgba(0,0,0,.78);
       }
@@ -135,7 +138,7 @@
         text-underline-offset: 2px;
       }
 
-      /* ✅ CONTACT-OSIO “KIINNI” (osa samaa korttia) */
+      /* CONTACT-OSIO (kiinni samassa laatikossa) */
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
         background: rgba(255,255,255,.88);
@@ -156,7 +159,6 @@
         gap: 6px;
       }
 
-      /* Alin pikkurivi */
       footer{
         padding: 16px var(--pad);
         text-align:center;
@@ -166,11 +168,15 @@
 
       /* Responsiivisuus */
       @media (max-width: 900px){
-        .hero{ min-height: auto; padding: 92px var(--pad) 34px; }
+        .hero{
+          min-height: auto;
+          padding: 112px var(--pad) 34px; /* ✅ myös mobiilissa tilaa logolle */
+        }
         .grid{ grid-template-columns: 1fr; }
         .cols{ grid-template-columns: 1fr; }
-        .top-logo{ top: 28px; }
-        .top-logo img{ height: 78px; }
+
+        .top-logo{ top: 16px; }
+        .top-logo img{ height: 56px; }   /* ✅ mobiilissa pienempi */
       }
     </style>
   </head>
@@ -227,7 +233,6 @@
           </div>
         </div>
 
-        <!-- ✅ TÄMÄ ON NYT KIINNI KORTISSA (ei heilu) -->
         <div class="contact-block" aria-label="Yhteystiedot">
           <div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
           <div class="contact-lines">
@@ -241,6 +246,8 @@
     </main>
 
     <footer>© <span id="y"></span> Ympäristösuunnittelu Enviro Oy</footer>
-    <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
