@@ -42,7 +42,6 @@
         display: grid;
         place-items: center;
 
-        /* ✅ lisää tilaa logolle -> ei törmää korttiin */
         padding: 132px var(--pad) 48px;
 
         overflow: hidden;
@@ -80,9 +79,7 @@
         position: relative;
         z-index: 10;
         width: min(var(--max), 100%);
-
         background: rgba(255,255,255,.96);
-
         backdrop-filter: blur(8px);
         border: 1px solid rgba(255,255,255,.60);
         border-radius: var(--card-radius);
@@ -102,9 +99,7 @@
         font-weight: 700;
         line-height: 1.10;
         letter-spacing: -0.15px;
-
-        /* oli: clamp(30px, 4.2vw, 54px) */
-        font-size: clamp(26px, 3.5vw, 46px); /* ✅ pari kokoa pienempi */
+        font-size: clamp(26px, 3.5vw, 46px);
       }
 
       .sub{
@@ -148,6 +143,7 @@
         font-weight: 600;
       }
 
+      /* 2 palstaa esimerkeille */
       .cols{
         display:grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -192,7 +188,7 @@
         font-weight: 500;
       }
 
-      /* Responsiivisuus */
+      /* ✅ Responsiivisuus */
       @media (max-width: 900px){
         .hero{
           min-height: auto;
@@ -200,7 +196,10 @@
         }
 
         .grid{ grid-template-columns: 1fr; }
-        .cols{ grid-template-columns: 1fr; }
+
+        /* ✅ mobiilissa luontolistat allekkain, EI rakoa "jäkälät – linnut" väliin */
+        .cols{ grid-template-columns: 1fr; gap: 0; }
+        .cols ul{ margin-top: 0; }
 
         .top-logo{ top: 16px; }
         .top-logo img{ height: 56px; }
