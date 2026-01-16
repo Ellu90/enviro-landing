@@ -18,12 +18,17 @@
       }
 
       *{ box-sizing: border-box; }
+
       body{
         margin: 0;
         font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
         color: var(--ink);
         background: #ffffff;
         line-height: 1.45;
+
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
       }
 
       /* HERO */
@@ -32,8 +37,9 @@
         min-height: 92vh;
         display: grid;
         place-items: center;
-        padding: 48px var(--pad);
+        padding: 84px var(--pad) 48px;
         overflow: hidden;
+        flex: 1;
       }
 
       .hero::before{
@@ -46,9 +52,27 @@
         transform: scale(1.02);
       }
 
+      /* LOGO kuvan päällä */
+      .top-logo{
+        position: absolute;
+        top: 32px;               /* ✅ lasketaan alas (oli 18px) */
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        pointer-events: none;
+      }
+
+      .top-logo img{
+        height: 92px;            /* ✅ isompi logo (oli 78px) */
+        width: auto;
+        display: block;
+        filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
+      }
+
       /* Card “leijuu” kuvan päällä */
       .card{
         position: relative;
+        z-index: 10;
         width: min(var(--max), 100%);
         background: rgba(255,255,255,.92);
         backdrop-filter: blur(8px);
@@ -56,20 +80,6 @@
         border-radius: var(--card-radius);
         box-shadow: var(--shadow);
         padding: clamp(18px, 3vw, 34px);
-      }
-
-      .top{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap: 14px;
-        margin-bottom: 10px;
-      }
-
-      .logo{
-        height: 44px;
-        width: auto;
-        display: block;
       }
 
       h1{
@@ -115,7 +125,6 @@
         font-size: 14px;
       }
 
-      /* 2+ palstaa esimerkeille, tiivis */
       .cols{
         display:grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -123,32 +132,79 @@
       }
       .cols ul{ margin-top: 6px; }
 
-      /* Responsiivisuus */
-      @media (max-width: 900px){
-        .hero{ min-height: auto; padding: 34px var(--pad); }
-        .grid{ grid-template-columns: 1fr; }
-        .cols{ grid-template-columns: 1fr; }
-        .logo{ height: 40px; }
+      a{
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
       }
 
-      /* Pieni footer (ei painikkeita) */
-      footer{
-        padding: 16px var(--pad);
-        text-align:center;
-        color: rgba(15,23,42,.55);
+      /* Responsiivisuus */
+      @media (max-width: 900px){
+        .hero{ min-height: auto; padding: 86px var(--pad) 34px; }
+        .grid{ grid-template-columns: 1fr; }
+        .cols{ grid-template-columns: 1fr; }
+
+        .top-logo{ top: 26px; }   /* mobiilissa vähän ylemmäs */
+        .top-logo img{ height: 78px; } /* mobiilissa sopivampi koko */
+      }
+
+      /* FOOTER (kiinni korttiin) */
+      .site-footer{
+        background: #ffffff;
+        text-align: center;
+
+        /* ✅ nostetaan footer kiinni edelliseen laatikkoon */
+        margin-top: -18px;
+
+        /* ✅ poistetaan “sauma” */
+        border-top: 0;
+
+        /* padding */
+        padding: 22px var(--pad) 26px;
+      }
+
+      @media (max-width: 900px){
+        .site-footer{
+          margin-top: -12px; /* mobiilissa hieman pienempi negatiivinen */
+          padding-top: 18px;
+        }
+      }
+
+      .site-footer .contact{
+        margin: 0;
+        padding: 0;
+        border: 0;
+        text-align: center;
+      }
+
+      .site-footer .contact-title{
+        font-weight: 700;
+        font-size: clamp(16px, 1.5vw, 20px);
+        margin-bottom: 10px;
+      }
+
+      .site-footer .contact-lines{
+        font-size: clamp(15px, 1.35vw, 18px);
+        color: var(--ink);
+        display: grid;
+        gap: 6px;
+      }
+
+      .site-footer .copyright{
+        margin-top: 18px;
         font-size: 12px;
+        color: rgba(15,23,42,.55);
       }
     </style>
   </head>
 
   <body>
     <main class="hero">
-      <section class="card" role="region" aria-label="Enviro landing">
-        <!-- Logo (vaihda logo.png repoosi myöhemmin) -->
-        <div class="top">
-          <img class="logo" src="logo.png" alt="Enviro logo" onerror="this.style.display='none'" />
-        </div>
+      <div class="top-logo" aria-hidden="true">
+        <img src="logo.png" alt="" onerror="this.style.display='none'" />
+      </div>
 
+      <section class="card" role="region" aria-label="Enviro landing">
         <h1>Ympäristösuunnittelu Enviro Oy</h1>
         <p class="sub">– asiantuntemusta vuodesta 1986</p>
 
@@ -188,14 +244,31 @@
           </div>
         </div>
 
-        <!-- Yhteystiedot voi halutessa lisätä myöhemmin tähän note-osioon -->
         <div class="note">
           Enviro on tehnyt satoja selvityksiä ja muita projekteja yli 200 kunnan alueella. Työntekijöillämme on vankka koulutus ja pitkäaikainen kokemus alalta. Olemme tunnettuja selkeistä ja havainnollisista raporteistamme.
         </div>
       </section>
     </main>
 
-    <footer>© <span id="y"></span> Ympäristösuunnittelu Enviro Oy</footer>
-    <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+    <footer class="site-footer">
+      <div class="contact" aria-label="Yhteystiedot">
+        <div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
+
+        <div class="contact-lines">
+          <div>Ympäristösuunnittelu Enviro Oy</div>
+          <div>Porrassalmenkatu 25 B, 50100 Mikkeli</div>
+          <div>toimitusjohtaja Marko Vauhkonen, puh. <a href="tel:+358400760075">0400 760075</a></div>
+          <div><a href="mailto:marko.vauhkonen@ys-enviro.fi">marko.vauhkonen@ys-enviro.fi</a></div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © <span id="y"></span> Ympäristösuunnittelu Enviro Oy
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>
