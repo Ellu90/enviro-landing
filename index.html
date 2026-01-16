@@ -6,10 +6,10 @@
     <title>Ympäristösuunnittelu Enviro Oy</title>
     <meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
 
-    <!-- ✅ Fontit: Manrope (tekstit) + Roboto (otsikko) -->
+    <!-- ✅ Fontit: Manrope (tekstit) + Raleway (otsikko) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
       :root{
@@ -96,11 +96,11 @@
         margin: 10px 0 6px;
         text-align: center;
 
-        /* ✅ Otsikko Roboto */
-        font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
-        font-weight: 900;
+        /* ✅ Otsikko Raleway */
+        font-family: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+        font-weight: 600;        /* kevyempi kuin 800/900 */
         line-height: 1.08;
-        letter-spacing: -0.4px;
+        letter-spacing: -0.3px;  /* moderni mutta ei liian tiukka */
 
         font-size: clamp(30px, 4.2vw, 54px);
       }
@@ -111,7 +111,6 @@
         font-size: clamp(16px, 2vw, 20px);
         color: rgba(0,0,0,.78);
 
-        /* ✅ kursiivilla + hieman korostettu */
         font-style: italic;
         font-weight: 600;
       }
@@ -138,7 +137,7 @@
       }
       li{ margin: 6px 0; }
 
-      /* ✅ NOTE semi-bold */
+      /* ✅ NOTE kevyesti boldattuna */
       .note{
         margin-top: 18px;
         padding-top: 14px;
@@ -146,7 +145,7 @@
         color: var(--muted);
         font-size: 14px;
 
-        font-weight: 600;  /* ✅ semi-bold */
+        font-weight: 600;  /* kevyt bold */
       }
 
       .cols{
@@ -206,7 +205,7 @@
         .top-logo{ top: 16px; }
         .top-logo img{ height: 56px; }
 
-        h1{ letter-spacing: -0.2px; }
+        h1{ letter-spacing: -0.15px; }
       }
     </style>
   </head>
