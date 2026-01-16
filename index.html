@@ -166,6 +166,33 @@
         color: rgba(15,23,42,.55);
         font-size: 12px;
       }
+
+            /* CONTACT (keskitetty, isompi, alalaitaan) */
+      .contact{
+        margin-top: 18px;
+        padding-top: 16px;
+        border-top: 1px solid rgba(15,23,42,.12);
+        text-align: center;
+      }
+      
+      .contact-title{
+        font-weight: 700;
+        font-size: clamp(16px, 1.5vw, 20px);
+        margin-bottom: 10px;
+      }
+      
+      .contact-lines{
+        font-size: clamp(15px, 1.35vw, 18px);
+        color: var(--ink);
+        display: grid;
+        gap: 6px;
+      }
+      
+      .contact a{
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
     </style>
   </head>
 
@@ -222,13 +249,13 @@
 
         <!-- YHTEYSTIEDOT (muokkaa nämä oikeiksi) -->
         <div class="contact" aria-label="Yhteystiedot">
-          <div>
-            <strong>Yhteystiedot</strong><br>
-            Puhelin: <a href="tel:+358401234567">+358 40 123 4567</a><br>
-            Sähköposti: <a href="mailto:info@yritys.fi">info@yritys.fi</a>
-          </div>
-          <div>
-            Osoite: Katu 1, 00100 Helsinki
+          <div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
+        
+          <div class="contact-lines">
+            <div>Ympäristösuunnittelu Enviro Oy</div>
+            <div>Porrassalmenkatu 25 B, 50100 Mikkeli</div>
+            <div>toimitusjohtaja Marko Vauhkonen, puh. <a href="tel:+358400760075">0400 760075</a></div>
+            <div><a href="mailto:marko.vauhkonen@ys-enviro.fi">marko.vauhkonen@ys-enviro.fi</a></div>
           </div>
         </div>
       </section>
