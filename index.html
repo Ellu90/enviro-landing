@@ -81,7 +81,6 @@
         z-index: 10;
         width: min(var(--max), 100%);
 
-        /* kevyempi/valkoisempi */
         background: rgba(255,255,255,.96);
 
         backdrop-filter: blur(8px);
@@ -95,15 +94,17 @@
         padding: clamp(18px, 3vw, 34px);
       }
 
-      /* ✅ KEVYEMPI OTSIKKO */
+      /* ✅ OTSIKKO PIENEMMÄLLÄ */
       h1{
         margin: 10px 0 6px;
         text-align: center;
         font-family: inherit;
-        font-weight: 700;           /* oli 800 */
+        font-weight: 700;
         line-height: 1.10;
-        letter-spacing: -0.15px;    /* vähemmän tiukka */
-        font-size: clamp(30px, 4.2vw, 54px);
+        letter-spacing: -0.15px;
+
+        /* oli: clamp(30px, 4.2vw, 54px) */
+        font-size: clamp(26px, 3.5vw, 46px); /* ✅ pari kokoa pienempi */
       }
 
       .sub{
