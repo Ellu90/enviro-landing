@@ -6,10 +6,10 @@
     <title>Ympäristösuunnittelu Enviro Oy</title>
     <meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
 
-    <!-- ✅ Fontit: Manrope -->
+    <!-- ✅ Fontit: Manrope (tekstit) + Roboto (otsikko) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto:wght@700;900&display=swap" rel="stylesheet">
 
     <style>
       :root{
@@ -26,12 +26,11 @@
       body{
         margin: 0;
         font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        font-weight: 500; /* ✅ Manrope näyttää usein paremmalta 500-painolla */
+        font-weight: 500;
         color: var(--ink);
         background: #ffffff;
         line-height: 1.45;
 
-        /* ✅ tekee fontista terävämmän/miellyttävämmän */
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -97,11 +96,11 @@
         margin: 10px 0 6px;
         text-align: center;
 
-        /* ✅ Manrope myös otsikossa */
-        font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        font-weight: 800;        /* ✅ vahva otsikko */
+        /* ✅ Otsikko Roboto */
+        font-family: "Roboto", system-ui, -apple-system, Segoe UI, Arial, sans-serif;
+        font-weight: 900;
         line-height: 1.08;
-        letter-spacing: -0.4px;  /* ✅ moderni, tiiviimpi */
+        letter-spacing: -0.4px;
 
         font-size: clamp(30px, 4.2vw, 54px);
       }
@@ -111,6 +110,9 @@
         text-align: center;
         font-size: clamp(16px, 2vw, 20px);
         color: rgba(0,0,0,.78);
+
+        /* ✅ kursiivilla + hieman korostettu */
+        font-style: italic;
         font-weight: 600;
       }
 
@@ -136,13 +138,15 @@
       }
       li{ margin: 6px 0; }
 
+      /* ✅ NOTE semi-bold */
       .note{
         margin-top: 18px;
         padding-top: 14px;
         border-top: 1px solid rgba(15,23,42,.12);
         color: var(--muted);
         font-size: 14px;
-        font-weight: 500;
+
+        font-weight: 600;  /* ✅ semi-bold */
       }
 
       .cols{
