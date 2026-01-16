@@ -6,10 +6,10 @@
     <title>Ympäristösuunnittelu Enviro Oy</title>
     <meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
 
-    <!-- ✅ Fontit: Manrope (tekstit) + Raleway (otsikko) -->
+    <!-- ✅ Fontit: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
       :root{
@@ -75,7 +75,7 @@
         filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
       }
 
-      /* YHTENÄINEN “KORTTI” (sisältö + kontaktit samassa) */
+      /* YHTENÄINEN “KORTTI” */
       .card{
         position: relative;
         z-index: 10;
@@ -92,16 +92,14 @@
         padding: clamp(18px, 3vw, 34px);
       }
 
+      /* ✅ Otsikko samalla fontilla kuin tekstit */
       h1{
         margin: 10px 0 6px;
         text-align: center;
-
-        /* ✅ Otsikko Raleway */
-        font-family: "Raleway", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-        font-weight: 600;        /* kevyempi kuin 800/900 */
+        font-family: inherit;      /* sama Manrope */
+        font-weight: 800;          /* kuten contact-title */
         line-height: 1.08;
-        letter-spacing: -0.3px;  /* moderni mutta ei liian tiukka */
-
+        letter-spacing: -0.3px;    /* moderni mutta kevyt */
         font-size: clamp(30px, 4.2vw, 54px);
       }
 
@@ -110,7 +108,6 @@
         text-align: center;
         font-size: clamp(16px, 2vw, 20px);
         color: rgba(0,0,0,.78);
-
         font-style: italic;
         font-weight: 600;
       }
@@ -144,8 +141,7 @@
         border-top: 1px solid rgba(15,23,42,.12);
         color: var(--muted);
         font-size: 14px;
-
-        font-weight: 600;  /* kevyt bold */
+        font-weight: 600;
       }
 
       .cols{
@@ -161,7 +157,7 @@
         text-underline-offset: 2px;
       }
 
-      /* CONTACT-OSIO (kiinni samassa laatikossa) */
+      /* CONTACT-OSIO */
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
         background: rgba(255,255,255,.88);
