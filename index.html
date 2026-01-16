@@ -81,14 +81,16 @@
         backdrop-filter: blur(8px);
         border: 1px solid rgba(255,255,255,.55);
       
-        /* ✅ MUUTOKSET TÄSSÄ */
-        border-bottom: 0; /* poistaa sauman kortin ja footerin välistä */
-        border-radius: var(--card-radius) var(--card-radius) 0 0; /* vain yläkulmat pyöreiksi */
+        /* ✅ saumaton liitos footerin kanssa */
+        border-bottom: 0;
+        border-radius: var(--card-radius) var(--card-radius) 0 0;
       
         box-shadow: var(--shadow);
         padding: clamp(18px, 3vw, 34px);
+      
+        /* ✅ NOSTA LAATIKKOA YLEMMÄS */
+        transform: translateY(-26px);
       }
-
 
         /* ✅ NOSTA LAATIKKOA YLEMMÄS */
         transform: translateY(-26px);
@@ -155,7 +157,6 @@
         width: min(var(--max), 100%);
         margin: 0 auto;
       
-        /* ✅ täysin kiinni: nostetaan kunnolla */
         margin-top: -60px;
       
         background: rgba(255,255,255,.92);
@@ -167,12 +168,13 @@
         border-radius: 0 0 var(--card-radius) var(--card-radius);
         box-shadow: var(--shadow);
       
-        padding: 8px var(--pad) 22px; /* ✅ pienempi yläpadding -> kiinni fiilis */
+        padding: 8px var(--pad) 22px;
         text-align: center;
       
         position: relative;
-        z-index: 9;
+        z-index: 11;
       }
+
 
       .site-footer .contact-title{
         font-weight: 700;
