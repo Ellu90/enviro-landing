@@ -75,14 +75,17 @@
         filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
       }
 
-      /* YHTENÄINEN “KORTTI” */
+      /* ✅ KEVYEMPI KORTTI */
       .card{
         position: relative;
         z-index: 10;
         width: min(var(--max), 100%);
-        background: rgba(255,255,255,.92);
+
+        /* kevyempi/valkoisempi */
+        background: rgba(255,255,255,.96);
+
         backdrop-filter: blur(8px);
-        border: 1px solid rgba(255,255,255,.55);
+        border: 1px solid rgba(255,255,255,.60);
         border-radius: var(--card-radius);
         box-shadow: var(--shadow);
         overflow: hidden;
@@ -92,14 +95,14 @@
         padding: clamp(18px, 3vw, 34px);
       }
 
-      /* ✅ Otsikko samalla fontilla kuin tekstit */
+      /* ✅ KEVYEMPI OTSIKKO */
       h1{
         margin: 10px 0 6px;
         text-align: center;
-        font-family: inherit;      /* sama Manrope */
-        font-weight: 800;          /* kuten contact-title */
-        line-height: 1.08;
-        letter-spacing: -0.3px;    /* moderni mutta kevyt */
+        font-family: inherit;
+        font-weight: 700;           /* oli 800 */
+        line-height: 1.10;
+        letter-spacing: -0.15px;    /* vähemmän tiukka */
         font-size: clamp(30px, 4.2vw, 54px);
       }
 
@@ -134,7 +137,7 @@
       }
       li{ margin: 6px 0; }
 
-      /* ✅ NOTE kevyesti boldattuna */
+      /* NOTE kevyesti boldattuna */
       .note{
         margin-top: 18px;
         padding-top: 14px;
@@ -157,10 +160,10 @@
         text-underline-offset: 2px;
       }
 
-      /* CONTACT-OSIO */
+      /* ✅ KEVYEMPI CONTACT-TAUSTA */
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
-        background: rgba(255,255,255,.88);
+        background: rgba(255,255,255,.94);
         padding: 18px var(--pad) 22px;
         text-align: center;
       }
@@ -200,8 +203,6 @@
 
         .top-logo{ top: 16px; }
         .top-logo img{ height: 56px; }
-
-        h1{ letter-spacing: -0.15px; }
       }
     </style>
   </head>
