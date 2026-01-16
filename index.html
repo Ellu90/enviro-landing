@@ -80,9 +80,15 @@
         background: rgba(255,255,255,.92);
         backdrop-filter: blur(8px);
         border: 1px solid rgba(255,255,255,.55);
-        border-radius: var(--card-radius);
+      
+        /* ✅ MUUTOKSET TÄSSÄ */
+        border-bottom: 0; /* poistaa sauman kortin ja footerin välistä */
+        border-radius: var(--card-radius) var(--card-radius) 0 0; /* vain yläkulmat pyöreiksi */
+      
         box-shadow: var(--shadow);
         padding: clamp(18px, 3vw, 34px);
+      }
+
 
         /* ✅ NOSTA LAATIKKOA YLEMMÄS */
         transform: translateY(-26px);
@@ -148,21 +154,22 @@
       .site-footer{
         width: min(var(--max), 100%);
         margin: 0 auto;
-
-        /* ✅ liitos täysin kiinni (nostetaan enemmän) */
-        margin-top: -0px;
-
+      
+        /* ✅ täysin kiinni: nostetaan kunnolla */
+        margin-top: -60px;
+      
         background: rgba(255,255,255,.92);
         backdrop-filter: blur(8px);
+      
         border: 1px solid rgba(255,255,255,.55);
         border-top: 0;
-
-        /* vain alapää pyöristetty -> näyttää samalta kortilta */
+      
         border-radius: 0 0 var(--card-radius) var(--card-radius);
         box-shadow: var(--shadow);
-
-        padding: 18px var(--pad) 22px;
+      
+        padding: 8px var(--pad) 22px; /* ✅ pienempi yläpadding -> kiinni fiilis */
         text-align: center;
+      
         position: relative;
         z-index: 9;
       }
