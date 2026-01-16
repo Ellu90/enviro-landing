@@ -1,9 +1,10 @@
+<!-- deploy test -->
 <!doctype html>
 <html lang="fi">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ympäristösuunnittelu Enviro Oy (versio 2)</title>
+    <title>Ympäristösuunnittelu Enviro Oy</title>
     <meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
 
     <style>
@@ -31,7 +32,7 @@
         min-height: 92vh;
         display: grid;
         place-items: center;
-        padding: 48px var(--pad);
+        padding: 84px var(--pad) 48px; /* yläpadding lisää tilaa ylälogolle */
         overflow: hidden;
       }
 
@@ -45,9 +46,27 @@
         transform: scale(1.02);
       }
 
+      /* LOGO kuvan päällä */
+      .top-logo{
+        position: absolute;
+        top: 18px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        pointer-events: none; /* ettei häiritse klikkauksia */
+      }
+
+      .top-logo img{
+        height: 78px;          /* <-- SÄÄDÄ tästä: esim 90px isommaksi */
+        width: auto;
+        display: block;
+        filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
+      }
+
       /* Card “leijuu” kuvan päällä */
       .card{
         position: relative;
+        z-index: 10;
         width: min(var(--max), 100%);
         background: rgba(255,255,255,.92);
         backdrop-filter: blur(8px);
@@ -55,20 +74,6 @@
         border-radius: var(--card-radius);
         box-shadow: var(--shadow);
         padding: clamp(18px, 3vw, 34px);
-      }
-
-      .top{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap: 14px;
-        margin-bottom: 10px;
-      }
-
-      .logo{
-        height: 44px;
-        width: auto;
-        display: block;
       }
 
       h1{
@@ -114,7 +119,7 @@
         font-size: 14px;
       }
 
-      /* 2+ palstaa esimerkeille, tiivis */
+      /* 2 palstaa esimerkeille, tiivis */
       .cols{
         display:grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -122,15 +127,39 @@
       }
       .cols ul{ margin-top: 6px; }
 
-      /* Responsiivisuus */
-      @media (max-width: 900px){
-        .hero{ min-height: auto; padding: 34px var(--pad); }
-        .grid{ grid-template-columns: 1fr; }
-        .cols{ grid-template-columns: 1fr; }
-        .logo{ height: 40px; }
+      /* Yhteystiedot */
+      .contact{
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(15,23,42,.12);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 18px;
+        align-items: flex-start;
+        justify-content: space-between;
+        font-size: 14px;
+        color: var(--muted);
       }
 
-      /* Pieni footer (ei painikkeita) */
+      .contact strong{
+        color: var(--ink);
+      }
+
+      .contact a{
+        color: inherit;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      /* Responsiivisuus */
+      @media (max-width: 900px){
+        .hero{ min-height: auto; padding: 76px var(--pad) 34px; }
+        .grid{ grid-template-columns: 1fr; }
+        .cols{ grid-template-columns: 1fr; }
+        .top-logo img{ height: 64px; }
+      }
+
+      /* Pieni footer */
       footer{
         padding: 16px var(--pad);
         text-align:center;
@@ -142,12 +171,12 @@
 
   <body>
     <main class="hero">
-      <section class="card" role="region" aria-label="Enviro landing">
-        <!-- Logo (vaihda logo.png repoosi myöhemmin) -->
-        <div class="top">
-          <img class="logo" src="logo.png" alt="Enviro logo" onerror="this.style.display='none'" />
-        </div>
+      <!-- Logo kuvan päällä -->
+      <div class="top-logo" aria-hidden="true">
+        <img src="logo.png" alt="" onerror="this.style.display='none'" />
+      </div>
 
+      <section class="card" role="region" aria-label="Enviro landing">
         <h1>Ympäristösuunnittelu Enviro Oy</h1>
         <p class="sub">– asiantuntemusta vuodesta 1986</p>
 
@@ -187,9 +216,20 @@
           </div>
         </div>
 
-        <!-- Yhteystiedot voi halutessa lisätä myöhemmin tähän note-osioon -->
         <div class="note">
           Enviro on tehnyt satoja selvityksiä ja muita projekteja yli 200 kunnan alueella. Työntekijöillämme on vankka koulutus ja pitkäaikainen kokemus alalta. Olemme tunnettuja selkeistä ja havainnollisista raporteistamme.
+        </div>
+
+        <!-- YHTEYSTIEDOT (muokkaa nämä oikeiksi) -->
+        <div class="contact" aria-label="Yhteystiedot">
+          <div>
+            <strong>Yhteystiedot</strong><br>
+            Puhelin: <a href="tel:+358401234567">+358 40 123 4567</a><br>
+            Sähköposti: <a href="mailto:info@yritys.fi">info@yritys.fi</a>
+          </div>
+          <div>
+            Osoite: Katu 1, 00100 Helsinki
+          </div>
         </div>
       </section>
     </main>
