@@ -26,7 +26,6 @@
         background: #ffffff;
         line-height: 1.45;
 
-        /* jotta footer pysyy alhaalla myös lyhyellä sisällöllä */
         min-height: 100vh;
         display: flex;
         flex-direction: column;
@@ -38,10 +37,11 @@
         min-height: 92vh;
         display: grid;
         place-items: center;
-        padding: 84px var(--pad) 48px; /* yläpadding lisää tilaa ylälogolle */
-        overflow: hidden;
 
-        /* flex-layoutissa täyttää tilan footerin yläpuolelle */
+        /* ✅ HUOM: poistetaan iso alapadding, jotta footer tulee kiinni */
+        padding: 84px var(--pad) 0px;
+
+        overflow: hidden;
         flex: 1;
       }
 
@@ -58,15 +58,15 @@
       /* LOGO kuvan päällä */
       .top-logo{
         position: absolute;
-        top: 18px;
+        top: 32px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
-        pointer-events: none; /* ettei häiritse klikkauksia */
+        pointer-events: none;
       }
 
       .top-logo img{
-        height: 78px;          /* <-- SÄÄDÄ tästä: esim 90px isommaksi */
+        height: 92px; /* isompi */
         width: auto;
         display: block;
         filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
@@ -83,6 +83,9 @@
         border-radius: var(--card-radius);
         box-shadow: var(--shadow);
         padding: clamp(18px, 3vw, 34px);
+
+        /* ✅ tärkeä: ei jätetä alapäähän väliä footerille */
+        margin-bottom: 0;
       }
 
       h1{
@@ -126,9 +129,11 @@
         border-top: 1px solid rgba(15,23,42,.12);
         color: var(--muted);
         font-size: 14px;
+
+        /* ✅ ettei jätä “extra ilmaa” alareunaan */
+        padding-bottom: 0;
       }
 
-      /* 2 palstaa esimerkeille, tiivis */
       .cols{
         display:grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -142,27 +147,30 @@
         text-underline-offset: 2px;
       }
 
-      /* Responsiivisuus */
-      @media (max-width: 900px){
-        .hero{ min-height: auto; padding: 76px var(--pad) 34px; }
-        .grid{ grid-template-columns: 1fr; }
-        .cols{ grid-template-columns: 1fr; }
-        .top-logo img{ height: 64px; }
-      }
-
-      /* FOOTER (alapalkki, keskitetty) */
+      /* ✅ FOOTER kiinni korttiin */
       .site-footer{
-        padding: 26px var(--pad);
-        text-align: center;
-        border-top: 1px solid rgba(15,23,42,.12);
-        background: #ffffff;
-      }
+        width: min(var(--max), 100%);
+        margin: 0 auto;
 
-      .site-footer .contact{
-        margin: 0;
-        padding: 0;
-        border: 0;
+        /* ✅ liitos korttiin: nostetaan footerin yläreuna kortin päälle */
+        margin-top: -18px;
+
+        /* footer näyttää samalta kortilta (yhtenäinen laatikko) */
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255,255,255,.55);
+
+        /* ✅ pyöristetään vain alapää -> näyttää samalta kortilta */
+        border-radius: 0 0 var(--card-radius) var(--card-radius);
+
+        /* ✅ varjo sama kuin kortilla (jatkuu nätisti) */
+        box-shadow: var(--shadow);
+
+        padding: 18px var(--pad) 22px;
         text-align: center;
+
+        /* ✅ yläreunaan ei tule viivaa */
+        border-top: 0;
       }
 
       .site-footer .contact-title{
@@ -182,6 +190,25 @@
         margin-top: 18px;
         font-size: 12px;
         color: rgba(15,23,42,.55);
+      }
+
+      /* Responsiivisuus */
+      @media (max-width: 900px){
+        .hero{
+          min-height: auto;
+
+          /* ✅ myös mobiilissa ei alapaddingia */
+          padding: 86px var(--pad) 0px;
+        }
+
+        .grid{ grid-template-columns: 1fr; }
+        .cols{ grid-template-columns: 1fr; }
+
+        .top-logo{ top: 26px; }
+        .top-logo img{ height: 78px; }
+
+        /* mobiilissa vähän pienempi liitos */
+        .site-footer{ margin-top: -14px; }
       }
     </style>
   </head>
@@ -239,6 +266,7 @@
       </section>
     </main>
 
+    <!-- ✅ footer näyttää nyt samalta kortilta ja on kiinni siihen -->
     <footer class="site-footer">
       <div class="contact" aria-label="Yhteystiedot">
         <div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
