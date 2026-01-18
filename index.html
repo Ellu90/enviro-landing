@@ -48,7 +48,7 @@
         overflow: hidden;
       }
 
-      /* ✅ TAUSTAKUVA (DESKTOP) – ei overlaytä, alkuperäinen väritys */
+      /* ✅ TAUSTAKUVA (DESKTOP) – ei overlaytä */
       .hero::before{
         content:"";
         position:absolute;
@@ -57,10 +57,10 @@
         transform: scale(1.02);
       }
 
-      /* LOGO kuvan päällä */
+      /* ✅ LOGO kuvan päällä */
       .top-logo{
         position: absolute;
-        top: 22px;
+        top: 34px; /* ✅ alemmaksi (oli 22px) */
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
@@ -91,7 +91,6 @@
         padding: clamp(18px, 3vw, 34px);
       }
 
-      /* ✅ OTSIKKO PIENEMMÄLLÄ */
       h1{
         margin: 10px 0 6px;
         text-align: center;
@@ -133,15 +132,12 @@
       }
       li{ margin: 6px 0; }
 
-      /* ✅ NOTE -> tausta brändivärillä + sama fonttikoko kuin listat */
       .note{
         margin-top: 18px;
         padding: 14px 16px;
-
         background: var(--brand);
         color: rgba(255,255,255,.95);
         border-radius: 14px;
-
         font-size: 1rem;
         font-weight: 600;
       }
@@ -159,7 +155,6 @@
         text-underline-offset: 2px;
       }
 
-      /* ✅ CONTACT-TAUSTA */
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
         background: rgba(255,255,255,.94);
@@ -204,11 +199,12 @@
 
         .grid{ grid-template-columns: 1fr; }
 
-        /* ✅ mobiilissa luontolistat allekkain, EI rakoa "jäkälät – linnut" väliin */
         .cols{ grid-template-columns: 1fr; gap: 0; }
         .cols ul{ margin-top: 0; }
 
-        .top-logo{ top: 16px; }
+        .top-logo{
+          top: 22px; /* ✅ alemmaksi mobiilissa (oli 16px) */
+        }
         .top-logo img{ height: 56px; }
       }
     </style>
