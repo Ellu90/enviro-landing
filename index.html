@@ -134,16 +134,17 @@
       }
       li{ margin: 6px 0; }
 
-      /* ✅ NOTE -> tausta brändivärillä */
+      /* ✅ NOTE -> tausta brändivärillä + sama fonttikoko kuin listoissa */
       .note{
         margin-top: 18px;
-        padding: 14px 16px;              /* vähän “palkkimaisempi” */
+        padding: 14px 16px;
         border-top: 1px solid rgba(15,23,42,.12);
 
-        background: var(--brand);        /* ✅ #48AF98 */
-        color: rgba(255,255,255,.95);    /* ✅ valkoinen teksti */
-        border-radius: 14px;             /* ✅ pehmeä palkki */
-        font-size: 14px;
+        background: var(--brand);
+        color: rgba(255,255,255,.95);
+        border-radius: 14px;
+
+        font-size: 1rem;    /* ✅ sama kuin listojen perusfontti */
         font-weight: 600;
       }
 
