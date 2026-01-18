@@ -19,6 +19,9 @@
         --shadow: 0 18px 50px rgba(0,0,0,.18);
         --ink: #0f172a;
         --muted: rgba(15, 23, 42, .78);
+
+        /* ✅ Logo-/teemaväri */
+        --brand: #48AF98;
       }
 
       *{ box-sizing: border-box; }
@@ -41,9 +44,7 @@
         min-height: 92vh;
         display: grid;
         place-items: center;
-
         padding: 132px var(--pad) 48px;
-
         overflow: hidden;
       }
 
@@ -133,17 +134,19 @@
       }
       li{ margin: 6px 0; }
 
-      /* NOTE kevyesti boldattuna */
+      /* ✅ NOTE -> tausta brändivärillä */
       .note{
         margin-top: 18px;
-        padding-top: 14px;
+        padding: 14px 16px;              /* vähän “palkkimaisempi” */
         border-top: 1px solid rgba(15,23,42,.12);
-        color: var(--muted);
+
+        background: var(--brand);        /* ✅ #48AF98 */
+        color: rgba(255,255,255,.95);    /* ✅ valkoinen teksti */
+        border-radius: 14px;             /* ✅ pehmeä palkki */
         font-size: 14px;
         font-weight: 600;
       }
 
-      /* 2 palstaa esimerkeille */
       .cols{
         display:grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
