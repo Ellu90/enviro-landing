@@ -48,13 +48,12 @@
         overflow: hidden;
       }
 
+      /* ✅ TAUSTAKUVA (DESKTOP) – ei overlaytä, alkuperäinen väritys */
       .hero::before{
         content:"";
         position:absolute;
         inset:0;
-        background:
-          linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-          url("verkkosivu_ihminen2.jpg") center/cover no-repeat;
+        background: url("verkkosivu_ihminen2.jpg") center/cover no-repeat;
         transform: scale(1.02);
       }
 
@@ -72,7 +71,7 @@
         height: 72px;
         width: auto;
         display: block;
-        filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
+        filter: drop-shadow(0 12px 26px rgba(0,0,0,.25));
       }
 
       /* ✅ KEVYEMPI KORTTI */
@@ -134,17 +133,16 @@
       }
       li{ margin: 6px 0; }
 
-      /* ✅ NOTE -> tausta brändivärillä + sama fonttikoko kuin listoissa */
+      /* ✅ NOTE -> tausta brändivärillä + sama fonttikoko kuin listat */
       .note{
         margin-top: 18px;
         padding: 14px 16px;
-        border-top: 1px solid rgba(15,23,42,.12);
 
         background: var(--brand);
         color: rgba(255,255,255,.95);
         border-radius: 14px;
 
-        font-size: 1rem;    /* ✅ sama kuin listojen perusfontti */
+        font-size: 1rem;
         font-weight: 600;
       }
 
@@ -161,7 +159,7 @@
         text-underline-offset: 2px;
       }
 
-      /* ✅ KEVYEMPI CONTACT-TAUSTA */
+      /* ✅ CONTACT-TAUSTA */
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
         background: rgba(255,255,255,.94);
@@ -192,11 +190,16 @@
         font-weight: 500;
       }
 
-      /* ✅ Responsiivisuus */
+      /* ✅ Responsiivisuus + mobiilikuva */
       @media (max-width: 900px){
         .hero{
           min-height: auto;
           padding: 112px var(--pad) 34px;
+        }
+
+        /* ✅ TAUSTAKUVA (MOBILE) */
+        .hero::before{
+          background: url("verkkosivu_ihminen_mobile.jpg") center/cover no-repeat;
         }
 
         .grid{ grid-template-columns: 1fr; }
