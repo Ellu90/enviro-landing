@@ -188,7 +188,7 @@
         font-weight: 500;
       }
 
-      /* Leveyteen perustuva responsiivisuus */
+      /* Mobiili / kapeat näytöt */
       @media (max-width: 900px){
         .hero{
           min-height: auto;
@@ -221,7 +221,7 @@
         }
       }
 
-      /* Matalammat näytöt / pienempi käytettävä korkeus */
+      /* Matalammat näytöt */
       @media (max-height: 950px){
         .hero{
           min-height: 80vh;
@@ -284,6 +284,77 @@
 
         footer{
           padding: 12px var(--pad);
+        }
+      }
+
+      /* Leveä mutta matala näyttö */
+      @media (min-width: 1600px) and (max-height: 950px){
+        .hero{
+          min-height: 78vh;
+          padding: 82px var(--pad) 20px;
+        }
+
+        .top-logo{
+          top: 18px;
+        }
+
+        .top-logo img{
+          height: 56px;
+        }
+
+        .card-inner{
+          padding: 18px 22px;
+        }
+
+        h1{
+          margin: 6px 0 4px;
+          font-size: clamp(24px, 2.6vw, 38px);
+        }
+
+        .sub{
+          margin: 0 0 12px;
+          font-size: 15px;
+        }
+
+        .section-title{
+          margin: 12px 0 6px;
+          font-size: 16px;
+        }
+
+        .grid{
+          gap: 14px 20px;
+        }
+
+        ul{
+          margin-top: 6px;
+        }
+
+        li{
+          margin: 4px 0;
+        }
+
+        .note{
+          margin-top: 12px;
+          padding: 12px 14px;
+          font-size: 0.95rem;
+        }
+
+        .contact-block{
+          padding: 14px var(--pad) 16px;
+        }
+
+        .contact-title{
+          margin-bottom: 6px;
+          font-size: 16px;
+        }
+
+        .contact-lines{
+          gap: 4px;
+          font-size: 14px;
+        }
+
+        footer{
+          padding: 10px var(--pad);
         }
       }
     </style>
@@ -354,6 +425,7 @@
     </main>
 
     <footer>© <span id="y"></span> Ympäristösuunnittelu Enviro Oy</footer>
+
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
