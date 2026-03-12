@@ -35,17 +35,15 @@
         -moz-osx-font-smoothing: grayscale;
       }
 
-      /* HERO */
       .hero{
         position: relative;
-        min-height: 82vh;
+        min-height: 86vh;
         display: grid;
         place-items: center;
-        padding: 104px var(--pad) 28px;
+        padding: 120px var(--pad) 36px;
         overflow: hidden;
       }
 
-      /* TAUSTAKUVA (DESKTOP) */
       .hero::before{
         content:"";
         position:absolute;
@@ -54,10 +52,9 @@
         transform: scale(1.02);
       }
 
-      /* LOGO kuvan päällä */
       .top-logo{
         position: absolute;
-        top: 28px;
+        top: 30px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
@@ -65,13 +62,12 @@
       }
 
       .top-logo img{
-        height: 68px;
+        height: 70px;
         width: auto;
         display: block;
         filter: drop-shadow(0 12px 26px rgba(0,0,0,.25));
       }
 
-      /* KORTTI */
       .card{
         position: relative;
         z-index: 10;
@@ -91,7 +87,6 @@
       h1{
         margin: 10px 0 6px;
         text-align: center;
-        font-family: inherit;
         font-weight: 700;
         line-height: 1.10;
         letter-spacing: -0.15px;
@@ -161,34 +156,34 @@
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
         background: rgba(255,255,255,.94);
-        padding: 18px var(--pad) 22px;
+        padding: 16px var(--pad) 18px;
         text-align: center;
       }
 
       .contact-title{
         font-weight: 800;
         font-size: clamp(16px, 1.5vw, 20px);
-        margin-bottom: 10px;
+        margin-bottom: 8px;
         letter-spacing: -0.2px;
       }
 
       .contact-lines{
-        font-size: clamp(15px, 1.35vw, 18px);
+        font-size: clamp(15px, 1.2vw, 17px);
         color: var(--ink);
         display: grid;
-        gap: 6px;
+        gap: 4px;
         font-weight: 600;
       }
 
       footer{
-        padding: 16px var(--pad);
+        padding: 12px var(--pad) 14px;
         text-align:center;
         color: rgba(15,23,42,.55);
         font-size: 12px;
         font-weight: 500;
       }
 
-      /* Mobiili / kapeat näytöt */
+      /* Kapeat näytöt / mobiili */
       @media (max-width: 900px){
         .hero{
           min-height: auto;
@@ -221,77 +216,11 @@
         }
       }
 
-      /* Matalammat näytöt */
-      @media (max-height: 950px){
-        .hero{
-          min-height: 80vh;
-          padding: 90px var(--pad) 24px;
-        }
-
-        .top-logo{
-          top: 22px;
-        }
-
-        .top-logo img{
-          height: 60px;
-        }
-
-        .card-inner{
-          padding: 20px 22px;
-        }
-
-        h1{
-          margin: 8px 0 4px;
-          font-size: clamp(25px, 3.2vw, 40px);
-        }
-
-        .sub{
-          margin: 0 0 14px;
-          font-size: 16px;
-        }
-
-        .section-title{
-          margin: 14px 0 6px;
-          font-size: 17px;
-        }
-
-        .grid{
-          gap: 16px 22px;
-        }
-
-        ul{
-          margin-top: 8px;
-        }
-
-        li{
-          margin: 5px 0;
-        }
-
-        .note{
-          margin-top: 14px;
-          padding: 13px 15px;
-          font-size: 0.97rem;
-        }
-
-        .contact-block{
-          padding: 16px var(--pad) 18px;
-        }
-
-        .contact-title{
-          margin-bottom: 8px;
-          font-size: 17px;
-        }
-
-        footer{
-          padding: 12px var(--pad);
-        }
-      }
-
-      /* Leveä mutta matala näyttö */
+      /* Leveä mutta matalampi näyttö: tiivistä vain tätä tapausta varten */
       @media (min-width: 1600px) and (max-height: 950px){
         .hero{
           min-height: 78vh;
-          padding: 82px var(--pad) 20px;
+          padding: 88px var(--pad) 22px;
         }
 
         .top-logo{
@@ -308,7 +237,7 @@
 
         h1{
           margin: 6px 0 4px;
-          font-size: clamp(24px, 2.6vw, 38px);
+          font-size: clamp(24px, 2.8vw, 40px);
         }
 
         .sub{
@@ -340,21 +269,21 @@
         }
 
         .contact-block{
-          padding: 14px var(--pad) 16px;
+          padding: 12px var(--pad) 14px;
         }
 
         .contact-title{
-          margin-bottom: 6px;
+          margin-bottom: 4px;
           font-size: 16px;
         }
 
         .contact-lines{
-          gap: 4px;
           font-size: 14px;
+          gap: 3px;
         }
 
         footer{
-          padding: 10px var(--pad);
+          padding: 10px var(--pad) 12px;
         }
       }
     </style>
