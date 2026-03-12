@@ -1,296 +1,313 @@
 <!doctype html>
 <html lang="fi">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ympäristösuunnittelu Enviro Oy</title>
-<meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ympäristösuunnittelu Enviro Oy</title>
+  <meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
+  <style>
+    :root{
+      --max: 1100px;
+      --pad: 20px;
+      --card-radius: 18px;
+      --shadow: 0 18px 50px rgba(0,0,0,.18);
+      --ink: #0f172a;
+      --muted: rgba(15, 23, 42, .78);
+      --brand: #48AF98;
+    }
 
-:root{
---max:1100px;
---pad:20px;
---card-radius:18px;
---shadow:0 18px 50px rgba(0,0,0,.18);
---ink:#0f172a;
---muted:rgba(15,23,42,.78);
---brand:#48AF98;
-}
+    *{ box-sizing: border-box; }
 
-*{box-sizing:border-box}
+    html, body{
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
 
-html,body{
-margin:0;
-padding:0;
-height:100%;
-}
+    body{
+      font-family: "Manrope", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight: 500;
+      color: var(--ink);
+      background: #ffffff;
+      line-height: 1.45;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
 
-body{
-font-family:"Manrope",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
-color:var(--ink);
-background:#ffffff;
-line-height:1.45;
+    .hero{
+      position: relative;
+      flex: 1;
+      display: grid;
+      place-items: center;
+      padding: 110px var(--pad) 24px;
+      overflow: hidden;
+    }
 
-display:flex;
-flex-direction:column;
-min-height:100vh;
-}
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:url("verkkosivu_ihminen2.jpg") center/cover no-repeat;
+      transform:scale(1.02);
+    }
 
-/* HERO */
+    .top-logo{
+      position:absolute;
+      top:38px;
+      left:50%;
+      transform:translateX(-50%);
+      z-index:20;
+      pointer-events: none;
+    }
 
-.hero{
-position:relative;
-flex:1;
-display:grid;
-place-items:center;
-padding:110px var(--pad) 24px;
-overflow:hidden;
-}
+    .top-logo img{
+      height:86px;
+      width:auto;
+      display:block;
+      filter:drop-shadow(0 12px 26px rgba(0,0,0,.25));
+    }
 
-.hero::before{
-content:"";
-position:absolute;
-inset:0;
-background:url("verkkosivu_ihminen2.jpg") center/cover no-repeat;
-transform:scale(1.02);
-}
+    .card{
+      position:relative;
+      z-index:10;
+      width:min(var(--max),100%);
+      background:rgba(255,255,255,.96);
+      -webkit-backdrop-filter:blur(8px);
+      backdrop-filter:blur(8px);
+      border-radius:var(--card-radius);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
 
-/* LOGO */
+    .card-inner{
+      padding:clamp(18px,3vw,34px);
+    }
 
-.top-logo{
-position:absolute;
-top:38px;
-left:50%;
-transform:translateX(-50%);
-z-index:20;
-}
+    h1{
+      margin:10px 0 6px;
+      text-align:center;
+      font-family: inherit;
+      font-weight:700;
+      line-height:1.10;
+      letter-spacing:-0.15px;
+      font-size:clamp(26px,3.5vw,46px);
+    }
 
-.top-logo img{
-height:86px;
-filter:drop-shadow(0 12px 26px rgba(0,0,0,.25));
-}
+    .sub{
+      margin:0 0 18px;
+      text-align:center;
+      font-size:clamp(16px,2vw,20px);
+      color:rgba(0,0,0,.78);
+      font-style:italic;
+      font-weight:600;
+    }
 
-/* CARD */
+    .section-title{
+      margin:18px 0 8px;
+      font-size:18px;
+      letter-spacing:.2px;
+      font-weight:700;
+    }
 
-.card{
-position:relative;
-z-index:10;
-width:min(var(--max),100%);
-background:rgba(255,255,255,.96);
-backdrop-filter:blur(8px);
-border-radius:var(--card-radius);
-box-shadow:var(--shadow);
-overflow:hidden;
-}
+    .grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:18px 26px;
+      margin-top:8px;
+    }
 
-.card-inner{
-padding:clamp(18px,3vw,34px);
-}
+    ul{
+      margin:10px 0 0;
+      padding-left:18px;
+      color:var(--muted);
+      font-weight:500;
+    }
 
-h1{
-margin:10px 0 6px;
-text-align:center;
-font-weight:700;
-font-size:clamp(26px,3.5vw,46px);
-}
+    li{
+      margin:6px 0;
+    }
 
-.sub{
-margin:0 0 18px;
-text-align:center;
-font-size:clamp(16px,2vw,20px);
-font-style:italic;
-}
+    .note{
+      margin-top:18px;
+      padding:14px 16px;
+      background:var(--brand);
+      color:rgba(255,255,255,.95);
+      border-radius:14px;
+      font-size:1rem;
+      font-weight:600;
+    }
 
-.section-title{
-margin:18px 0 8px;
-font-weight:700;
-}
+    .cols{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0, 1fr));
+      gap:10px 18px;
+    }
 
-.grid{
-display:grid;
-grid-template-columns:1.1fr .9fr;
-gap:18px 26px;
-}
+    .cols ul{
+      margin-top:6px;
+    }
 
-ul{
-margin:10px 0 0;
-padding-left:18px;
-color:var(--muted);
-}
+    a{
+      color:inherit;
+      text-decoration:underline;
+      text-underline-offset:2px;
+    }
 
-li{margin:6px 0}
+    .contact-block{
+      border-top:1px solid rgba(15,23,42,.12);
+      padding:16px var(--pad);
+      text-align:center;
+      background:rgba(255,255,255,.94);
+    }
 
-.note{
-margin-top:18px;
-padding:14px 16px;
-background:var(--brand);
-color:white;
-border-radius:14px;
-font-weight:600;
-}
+    .contact-title{
+      font-weight:800;
+      margin-bottom:6px;
+      font-size:clamp(16px,1.5vw,20px);
+      letter-spacing:-0.2px;
+    }
 
-.cols{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px 18px;
-}
+    .contact-lines{
+      font-size:clamp(15px,1.25vw,17px);
+      display:grid;
+      gap:3px;
+      font-weight:600;
+    }
 
-.contact-block{
-border-top:1px solid rgba(15,23,42,.12);
-padding:16px var(--pad);
-text-align:center;
-}
+    footer{
+      padding:2px 6px 3px;
+      text-align:center;
+      font-size:10px;
+      color:rgba(15,23,42,.45);
+      line-height:1.1;
+      background:transparent;
+    }
 
-.contact-title{
-font-weight:800;
-margin-bottom:6px;
-}
+    @media (max-width: 900px){
+      .hero{
+        min-height:auto;
+        padding:105px var(--pad) 20px;
+      }
 
-.contact-lines{
-font-size:clamp(15px,1.25vw,17px);
-display:grid;
-gap:3px;
-font-weight:600;
-}
+      .hero::before{
+        background:url("verkkosivu_ihminen_mobile.jpg") center/cover no-repeat;
+        transform:none;
+      }
 
-/* FOOTER */
+      .top-logo{
+        top:32px;
+      }
 
-footer{
-padding:2px 6px 3px;
-text-align:center;
-font-size:10px;
-color:rgba(15,23,42,.45);
-}
+      .top-logo img{
+        height:68px;
+      }
 
-/* MOBILE */
+      .card{
+        background:#ffffff;
+        -webkit-backdrop-filter:none;
+        backdrop-filter:none;
+      }
 
-@media (max-width:900px){
+      .grid{
+        grid-template-columns:1fr;
+      }
 
-.hero{
-padding:105px var(--pad) 20px;
-}
+      .cols{
+        grid-template-columns:1fr;
+        gap:0;
+      }
 
-.hero::before{
-background:url("verkkosivu_ihminen_mobile.jpg") center/cover no-repeat;
-transform:none;
-}
+      .cols ul{
+        margin-top:0;
+      }
 
-.top-logo{
-top:32px;
-}
-
-.top-logo img{
-height:68px;
-}
-
-.card{
-background:#ffffff;
-backdrop-filter:none;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.cols{
-grid-template-columns:1fr;
-gap:0;
-}
-
-}
-
-</style>
+      .contact-block{
+        background:#ffffff;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="hero">
+    <div class="top-logo" aria-hidden="true">
+      <img src="logo.png" alt="" onerror="this.style.display='none'" />
+    </div>
 
-<main class="hero">
+    <section class="card" role="region" aria-label="Enviro landing">
+      <div class="card-inner">
+        <h1>Ympäristösuunnittelu Enviro Oy</h1>
+        <p class="sub">– asiantuntemusta vuodesta 1986</p>
 
-<div class="top-logo">
-<img src="logo.png" alt="">
-</div>
+        <div class="grid">
+          <div>
+            <div class="section-title">Toimialaamme ovat:</div>
+            <ul>
+              <li>luonto- ja ympäristöselvitykset maankäytön suunnittelua ja erilaisia hankkeita varten</li>
+              <li>luonto- ja ympäristövaikutusten arviointi (myös Natura-arvioinnit)</li>
+              <li>luonnonympäristöä koskeva suunnittelu (hoito- ja käyttösuunnitelmat, kunnostussuunnitelmat yms.)</li>
+              <li>luontoon liittyvät asiantuntijatehtävät ja paikkatietoanalyysit</li>
+            </ul>
+          </div>
 
-<section class="card">
+          <div>
+            <div class="section-title">Luontoselvitykseen voi sisältyä esimerkiksi:</div>
+            <div class="cols">
+              <ul>
+                <li>arvokkaat luontokohteet</li>
+                <li>ekologiset yhteydet</li>
+                <li>luonto- ja kasvillisuustyypit</li>
+                <li>putkilokasvit</li>
+                <li>sammalet</li>
+                <li>käävät</li>
+                <li>jäkälät</li>
+              </ul>
 
-<div class="card-inner">
+              <ul>
+                <li>linnut</li>
+                <li>liito-orava</li>
+                <li>lepakot</li>
+                <li>saukko</li>
+                <li>viitasammakko</li>
+                <li>sudenkorennot</li>
+                <li>perhoset</li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-<h1>Ympäristösuunnittelu Enviro Oy</h1>
-<p class="sub">– asiantuntemusta vuodesta 1986</p>
+        <div class="note">
+          Enviro on tehnyt satoja selvityksiä ja muita projekteja yli 200 kunnan alueella. Työntekijöillämme on vankka koulutus ja pitkäaikainen kokemus alalta. Olemme tunnettuja selkeistä ja havainnollisista raporteistamme.
+        </div>
+      </div>
 
-<div class="grid">
+      <div class="contact-block" aria-label="Yhteystiedot">
+        <div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
 
-<div>
-<div class="section-title">Toimialaamme ovat:</div>
-<ul>
-<li>luonto- ja ympäristöselvitykset maankäytön suunnittelua ja erilaisia hankkeita varten</li>
-<li>luonto- ja ympäristövaikutusten arviointi (myös Natura-arvioinnit)</li>
-<li>luonnonympäristöä koskeva suunnittelu</li>
-<li>luontoon liittyvät asiantuntijatehtävät ja paikkatietoanalyysit</li>
-</ul>
-</div>
+        <div class="contact-lines">
+          <div>Ympäristösuunnittelu Enviro Oy</div>
+          <div>Porrassalmenkatu 25 B, 50100 Mikkeli</div>
+          <div>toimitusjohtaja Marko Vauhkonen, puh. <a href="tel:+358400760075">0400 760075</a></div>
+          <div><a href="mailto:marko.vauhkonen@ys-enviro.fi">marko.vauhkonen@ys-enviro.fi</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<div>
-<div class="section-title">Luontoselvitykseen voi sisältyä esimerkiksi:</div>
+  <footer>
+    © <span id="y"></span> Ympäristösuunnittelu Enviro Oy
+  </footer>
 
-<div class="cols">
-<ul>
-<li>arvokkaat luontokohteet</li>
-<li>ekologiset yhteydet</li>
-<li>luontotyypit</li>
-<li>putkilokasvit</li>
-<li>sammalet</li>
-<li>käävät</li>
-<li>jäkälät</li>
-</ul>
-
-<ul>
-<li>linnut</li>
-<li>liito-orava</li>
-<li>lepakot</li>
-<li>saukko</li>
-<li>viitasammakko</li>
-<li>sudenkorennot</li>
-<li>perhoset</li>
-</ul>
-</div>
-
-</div>
-
-</div>
-
-<div class="note">
-Enviro on tehnyt satoja selvityksiä yli 200 kunnan alueella.
-</div>
-
-</div>
-
-<div class="contact-block">
-<div class="contact-title">Ota yhteyttä ja pyydä tarjous!</div>
-
-<div class="contact-lines">
-<div>Ympäristösuunnittelu Enviro Oy</div>
-<div>Porrassalmenkatu 25 B, 50100 Mikkeli</div>
-<div>Marko Vauhkonen – 0400 760075</div>
-<div>marko.vauhkonen@ys-enviro.fi</div>
-</div>
-</div>
-
-</section>
-
-</main>
-
-<footer>
-© <span id="y"></span> Ympäristösuunnittelu Enviro Oy
-</footer>
-
-<script>
-document.getElementById("y").textContent = new Date().getFullYear();
-</script>
-
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
