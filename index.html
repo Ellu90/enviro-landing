@@ -31,7 +31,6 @@
         color: var(--ink);
         background: #ffffff;
         line-height: 1.45;
-
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -225,67 +224,62 @@
       /* Matalammat näytöt / pienempi käytettävä korkeus */
       @media (max-height: 950px){
         .hero{
-          min-height: 74vh;
-          padding: 78px var(--pad) 18px;
+          min-height: 80vh;
+          padding: 90px var(--pad) 24px;
         }
 
         .top-logo{
-          top: 18px;
+          top: 22px;
         }
 
         .top-logo img{
-          height: 56px;
+          height: 60px;
         }
 
         .card-inner{
-          padding: 18px 20px;
+          padding: 20px 22px;
         }
 
         h1{
-          margin: 6px 0 4px;
-          font-size: clamp(24px, 3vw, 38px);
+          margin: 8px 0 4px;
+          font-size: clamp(25px, 3.2vw, 40px);
         }
 
         .sub{
-          margin: 0 0 12px;
+          margin: 0 0 14px;
           font-size: 16px;
         }
 
         .section-title{
-          margin: 12px 0 6px;
-          font-size: 16px;
+          margin: 14px 0 6px;
+          font-size: 17px;
         }
 
         .grid{
-          gap: 14px 20px;
+          gap: 16px 22px;
         }
 
         ul{
-          margin-top: 6px;
+          margin-top: 8px;
         }
 
         li{
-          margin: 4px 0;
+          margin: 5px 0;
         }
 
         .note{
-          margin-top: 12px;
-          padding: 12px 14px;
-          font-size: 0.95rem;
+          margin-top: 14px;
+          padding: 13px 15px;
+          font-size: 0.97rem;
         }
 
         .contact-block{
-          padding: 14px var(--pad) 16px;
+          padding: 16px var(--pad) 18px;
         }
 
         .contact-title{
           margin-bottom: 8px;
           font-size: 17px;
-        }
-
-        .contact-lines{
-          gap: 4px;
-          font-size: 15px;
         }
 
         footer{
@@ -360,7 +354,6 @@
     </main>
 
     <footer>© <span id="y"></span> Ympäristösuunnittelu Enviro Oy</footer>
-
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
