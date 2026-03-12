@@ -6,7 +6,7 @@
     <title>Ympäristösuunnittelu Enviro Oy</title>
     <meta name="description" content="Ympäristösuunnittelu Enviro Oy – asiantuntemusta vuodesta 1986." />
 
-    <!-- ✅ Fontit: Manrope -->
+    <!-- Fontit: Manrope -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -19,8 +19,6 @@
         --shadow: 0 18px 50px rgba(0,0,0,.18);
         --ink: #0f172a;
         --muted: rgba(15, 23, 42, .78);
-
-        /* ✅ Logo-/teemaväri */
         --brand: #48AF98;
       }
 
@@ -33,7 +31,6 @@
         color: var(--ink);
         background: #ffffff;
         line-height: 1.45;
-
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -41,27 +38,26 @@
       /* HERO */
       .hero{
         position: relative;
-        min-height: 92vh;
+        min-height: 82vh;
         display: grid;
         place-items: center;
-        padding: 132px var(--pad) 48px;
+        padding: 104px var(--pad) 28px;
         overflow: hidden;
       }
 
+      /* TAUSTAKUVA (DESKTOP) */
       .hero::before{
         content:"";
         position:absolute;
         inset:0;
-        background:
-          linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.35)),
-          url("bg.jpg") center/cover no-repeat;
+        background: url("verkkosivu_ihminen2.jpg") center/cover no-repeat;
         transform: scale(1.02);
       }
 
       /* LOGO kuvan päällä */
       .top-logo{
         position: absolute;
-        top: 22px;
+        top: 28px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 20;
@@ -69,13 +65,13 @@
       }
 
       .top-logo img{
-        height: 72px;
+        height: 68px;
         width: auto;
         display: block;
-        filter: drop-shadow(0 12px 26px rgba(0,0,0,.35));
+        filter: drop-shadow(0 12px 26px rgba(0,0,0,.25));
       }
 
-      /* ✅ KEVYEMPI KORTTI */
+      /* KORTTI */
       .card{
         position: relative;
         z-index: 10;
@@ -92,7 +88,6 @@
         padding: clamp(18px, 3vw, 34px);
       }
 
-      /* ✅ OTSIKKO PIENEMMÄLLÄ */
       h1{
         margin: 10px 0 6px;
         text-align: center;
@@ -132,19 +127,18 @@
         color: var(--muted);
         font-weight: 500;
       }
-      li{ margin: 6px 0; }
 
-      /* ✅ NOTE -> tausta brändivärillä + sama fonttikoko kuin listoissa */
+      li{
+        margin: 6px 0;
+      }
+
       .note{
         margin-top: 18px;
         padding: 14px 16px;
-        border-top: 1px solid rgba(15,23,42,.12);
-
         background: var(--brand);
         color: rgba(255,255,255,.95);
         border-radius: 14px;
-
-        font-size: 1rem;    /* ✅ sama kuin listojen perusfontti */
+        font-size: 1rem;
         font-weight: 600;
       }
 
@@ -153,7 +147,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 10px 18px;
       }
-      .cols ul{ margin-top: 6px; }
+
+      .cols ul{
+        margin-top: 6px;
+      }
 
       a{
         color: inherit;
@@ -161,7 +158,6 @@
         text-underline-offset: 2px;
       }
 
-      /* ✅ KEVYEMPI CONTACT-TAUSTA */
       .contact-block{
         border-top: 1px solid rgba(15,23,42,.12);
         background: rgba(255,255,255,.94);
@@ -192,21 +188,174 @@
         font-weight: 500;
       }
 
-      /* ✅ Responsiivisuus */
+      /* Mobiili / kapeat näytöt */
       @media (max-width: 900px){
         .hero{
           min-height: auto;
           padding: 112px var(--pad) 34px;
         }
 
-        .grid{ grid-template-columns: 1fr; }
+        .hero::before{
+          background: url("verkkosivu_ihminen_mobile.jpg") center/cover no-repeat;
+        }
 
-        /* ✅ mobiilissa luontolistat allekkain, EI rakoa "jäkälät – linnut" väliin */
-        .cols{ grid-template-columns: 1fr; gap: 0; }
-        .cols ul{ margin-top: 0; }
+        .grid{
+          grid-template-columns: 1fr;
+        }
 
-        .top-logo{ top: 16px; }
-        .top-logo img{ height: 56px; }
+        .cols{
+          grid-template-columns: 1fr;
+          gap: 0;
+        }
+
+        .cols ul{
+          margin-top: 0;
+        }
+
+        .top-logo{
+          top: 26px;
+        }
+
+        .top-logo img{
+          height: 56px;
+        }
+      }
+
+      /* Matalammat näytöt */
+      @media (max-height: 950px){
+        .hero{
+          min-height: 80vh;
+          padding: 90px var(--pad) 24px;
+        }
+
+        .top-logo{
+          top: 22px;
+        }
+
+        .top-logo img{
+          height: 60px;
+        }
+
+        .card-inner{
+          padding: 20px 22px;
+        }
+
+        h1{
+          margin: 8px 0 4px;
+          font-size: clamp(25px, 3.2vw, 40px);
+        }
+
+        .sub{
+          margin: 0 0 14px;
+          font-size: 16px;
+        }
+
+        .section-title{
+          margin: 14px 0 6px;
+          font-size: 17px;
+        }
+
+        .grid{
+          gap: 16px 22px;
+        }
+
+        ul{
+          margin-top: 8px;
+        }
+
+        li{
+          margin: 5px 0;
+        }
+
+        .note{
+          margin-top: 14px;
+          padding: 13px 15px;
+          font-size: 0.97rem;
+        }
+
+        .contact-block{
+          padding: 16px var(--pad) 18px;
+        }
+
+        .contact-title{
+          margin-bottom: 8px;
+          font-size: 17px;
+        }
+
+        footer{
+          padding: 12px var(--pad);
+        }
+      }
+
+      /* Leveä mutta matala näyttö */
+      @media (min-width: 1600px) and (max-height: 950px){
+        .hero{
+          min-height: 78vh;
+          padding: 82px var(--pad) 20px;
+        }
+
+        .top-logo{
+          top: 18px;
+        }
+
+        .top-logo img{
+          height: 56px;
+        }
+
+        .card-inner{
+          padding: 18px 22px;
+        }
+
+        h1{
+          margin: 6px 0 4px;
+          font-size: clamp(24px, 2.6vw, 38px);
+        }
+
+        .sub{
+          margin: 0 0 12px;
+          font-size: 15px;
+        }
+
+        .section-title{
+          margin: 12px 0 6px;
+          font-size: 16px;
+        }
+
+        .grid{
+          gap: 14px 20px;
+        }
+
+        ul{
+          margin-top: 6px;
+        }
+
+        li{
+          margin: 4px 0;
+        }
+
+        .note{
+          margin-top: 12px;
+          padding: 12px 14px;
+          font-size: 0.95rem;
+        }
+
+        .contact-block{
+          padding: 14px var(--pad) 16px;
+        }
+
+        .contact-title{
+          margin-bottom: 6px;
+          font-size: 16px;
+        }
+
+        .contact-lines{
+          gap: 4px;
+          font-size: 14px;
+        }
+
+        footer{
+          padding: 10px var(--pad);
+        }
       }
     </style>
   </head>
@@ -276,6 +425,7 @@
     </main>
 
     <footer>© <span id="y"></span> Ympäristösuunnittelu Enviro Oy</footer>
+
     <script>
       document.getElementById("y").textContent = new Date().getFullYear();
     </script>
